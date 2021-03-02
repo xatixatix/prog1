@@ -12,7 +12,6 @@ using namespace Graph_lib;
 
 //1
 Simple_window win{Point{50,50}, 500, 500, "13. Drill"};
-win.wait_for_button();
 
 //2
 int howManyX = 500;
@@ -29,23 +28,19 @@ for(int y = gridSizeY; y <= howManyY; y += gridSizeY){
 }
 
 win.attach(grid);
+win.set_label("Grid");	
 win.wait_for_button();
 
 //3
-Vector_ref<Rectangle> vecR;
-
-for (int i = 0; i < 8; ++i)
-{
-	vecR.push_back(new Rectangle(Point{}, gridSizeX, gridSizeY));
-	
+Vector_ref <Rectangle> rr;
+for(int i=0;i<10;i++){
+	rr.push_back(new Rectangle(Point(i*gridSizeX,i*gridSizeY),gridSizeX,gridSizeY));
+	rr[i].set_fill_color(Color::red);
+	win.attach(rr[i]);
+	win.set_label("Red Rectangles");	
 }
+win.wait_for_button();
 
-//4
-
-for (int i = 0; i < 10; ++i)
-{
-	
-}
 
 }
 catch(exception&e){
