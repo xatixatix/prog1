@@ -11,11 +11,11 @@ try{
 using namespace Graph_lib;
 
 //1
-Simple_window win{Point{50,50}, 500, 500, "13. Drill"};
+Simple_window win{Point{50,50}, 500, 400, "13. Drill"};
 
 //2
-int howManyX = 500;
-int howManyY = 500;
+int howManyX = 400;
+int howManyY = 400;
 int gridSizeX = 50;
 int gridSizeY = 50;
 
@@ -33,14 +33,57 @@ win.wait_for_button();
 
 //3
 Vector_ref <Rectangle> rr;
-for(int i=0;i<10;i++){
+win.set_label("Red Rectangles");
+for(int i=0;i<8;i++){
 	rr.push_back(new Rectangle(Point(i*gridSizeX,i*gridSizeY),gridSizeX,gridSizeY));
 	rr[i].set_fill_color(Color::red);
-	win.attach(rr[i]);
-	win.set_label("Red Rectangles");	
+	win.attach(rr[i]);	
 }
 win.wait_for_button();
 
+//4
+win.set_label("Little Cats");
+
+Image littleCatImage{Point{100,0}, "littlecats.jpeg"};
+littleCatImage.set_mask(Point{100,0},100,100);
+
+Image littleCatImage2{Point{250,0}, "littlecats.jpeg"};
+littleCatImage2.set_mask(Point{100,0},100,100);
+
+Image littleCatImage3{Point{250,150}, "littlecats.jpeg"};
+littleCatImage3.set_mask(Point{100,0},100,100);
+
+Image littleCatImage4{Point{50,250}, "littlecats.jpeg"};
+littleCatImage4.set_mask(Point{100,0},100,100);
+
+win.attach(littleCatImage);
+win.attach(littleCatImage2);
+win.attach(littleCatImage3);
+win.attach(littleCatImage4);
+
+win.wait_for_button();
+
+//5
+Image movingCatImage{Point{0,0}, "movingCat.gif"};
+movingCatImage.set_mask(Point{25,25},50,50);
+
+win.attach(movingCatImage);
+win.wait_for_button();
+
+for (int i = 0; i < 8; ++i)
+{
+	for (int j = 0; j < 8; ++j)
+	{
+		win.wait_for_button();
+		if (j<7)
+		{
+			movingCatImage.move(50,0);
+		}
+		else{
+			movingCatImage.move(-350,50);
+		}
+	}
+}
 
 }
 catch(exception&e){
