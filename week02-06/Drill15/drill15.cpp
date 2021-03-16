@@ -10,6 +10,16 @@ try{
 
 using namespace Graph_lib;
 
+constexpr int h = 1000;
+constexpr int w = 600;
+
+constexpr int middlex = w/2;
+constexpr int middley = h/2;
+
+Point orig{middley, middlex};
+
+Simple_window win{Point{50,50}, w, h, "Function graphs"};
+win.wait_for_button();
 
 }
 catch(exception&e){
