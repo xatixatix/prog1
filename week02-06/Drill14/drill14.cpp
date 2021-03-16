@@ -1,62 +1,66 @@
-#include "Simple_window.h"
+#include <iostream>
+using namespace std;
 
 /*
-g++ drill14.cpp Graph.cpp Window.cpp GUI.cpp Simple_window.cpp -o drill14 `fltk-config --ldflags --use-images`
+g++ drill14.cpp drill14`
 */
 
 class B1{
 public:
-	virtual void vf(){
+	virtual void vf() const {
 		cout<<"B1::vf()\n";
 	}
 
-	void f(){
+	void f() const {
 		cout<<"B1::f()\n";
 	}
 
-	virtual void pvf() = 0;
+	//virtual void pvf() const = 0;
 };
 
-class D1:B1{
-public:
-	void vf() override { 
+class D1:public B1{
+	void vf() const override { 
 		cout<<"D1::vf()\n";
 	}
 
-	void f(){
+	void f() const {
 		cout<<"D1::f()\n";
 	}
 };
 
-class D2:D1{
-public:
-	void pvf() override { 
-		cout<<"D2::pvf()\n";
-	}
+class D2:public D1{
+	// void pvf() const override { 
+	// 	cout<<"D2::pvf()\n";
+	// }
 };
+
+void call(B1& b){
+	b.vf();
+	b.f();
+}
 
 int main()
 try{
-/*
+
 //1
 B1 b1obj;
-b1obj.vf();
-b1obj.f();
+call(b1obj);
 
 //2
 D1 d1obj;
-d1obj.vf();
-d1obj.f();
+call(d1obj);
 
 //3
 B1& b1ref {d1obj};
-*/
+call(b1ref);
 
+/*
 //6
 D2 d2obj;
 d2obj.f();
 d2obj.vf();
 d2obj.pvf();
+*/
 
 }
 catch(exception&e){
