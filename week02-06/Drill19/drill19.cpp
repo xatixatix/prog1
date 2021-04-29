@@ -1,9 +1,7 @@
 #include "std_lib_facilities.h"
 
-
 template<typename T> 
 struct S{
-
 	S() {};
 	S(T v) : val{v} {}
 
@@ -13,7 +11,7 @@ struct S{
 	//void set(T value) {val = value;}
 	S<T>& operator=(const T& v)
 	{
-		val= v;
+		val = v;
 		return *this;
 	}
 
@@ -33,7 +31,6 @@ const T& S<T>::get() const
 	return val;
 }
 
-
 template<typename T>
 void read_val(T& v)
 {
@@ -41,10 +38,8 @@ void read_val(T& v)
 	if(!cin) error("Bad input!");
 }
 
-
 int main()
 {
-
 	S<int> i ={2021};
 	S<string> s {"Dandelion"};
 	S<char> c {'c'};
@@ -65,7 +60,6 @@ int main()
 	cout << "\nSet double: "<< d.get() << endl;
 	cout <<'\n';
 	*/
-
 
 	int i_read;
 	cout << "Pls enter an integer: ";

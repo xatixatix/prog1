@@ -8,7 +8,6 @@
 
 using namespace std;
 
-
 template<typename T>
 void print(T& t)
 {
@@ -86,7 +85,6 @@ try{
 	increment(a, 2);
 	increment(v, 3);
 	increment(l, 5);
-
 	
 	cout << "\nArray incremented (by 2): ";
 	print(a);
@@ -94,7 +92,6 @@ try{
 	print(v);
 	cout << "List incremented (by 5): ";
 	print(l);
-
 
 	//7
 	mcopy(a.begin(), a.end(), v.begin());
