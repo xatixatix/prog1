@@ -2,7 +2,7 @@
     g++ drill16.cpp Graph.cpp Window.cpp GUI.cpp Lines_window.cpp -o drill16 `fltk-config --ldflags --use-images`
 */
 #include "Lines_window.h"
-#include "Graph.h"
+#include "GUI.h"
 
 int main()
 try{
