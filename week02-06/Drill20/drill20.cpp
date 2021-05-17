@@ -100,7 +100,7 @@ try{
 	print(a);
 	cout << "Vector after copying array: ";
 	print(v);
-	cout << "List iafter copying: ";
+	cout << "List after copying: ";
 	print(l);
 	cout << endl;
 

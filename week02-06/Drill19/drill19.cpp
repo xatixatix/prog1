@@ -40,7 +40,7 @@ void read_val(T& v)
 
 int main()
 {
-	S<int> i ={2021};
+	S<int> i {2021};
 	S<string> s {"Dandelion"};
 	S<char> c {'c'};
 	S<double> d {21.76};
@@ -54,12 +54,6 @@ int main()
 	for(auto& a : v.get())
 		cout << a << " ";
 	cout << endl;
-
-	/*
-	d.set(10.10);
-	cout << "\nSet double: "<< d.get() << endl;
-	cout <<'\n';
-	*/
 
 	int i_read;
 	cout << "Pls enter an integer: ";
